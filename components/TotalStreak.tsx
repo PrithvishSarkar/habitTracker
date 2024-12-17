@@ -1,5 +1,5 @@
 import "../src/tailwind.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BsDashLg } from "react-icons/bs";
 import { TotalStreakCard } from "../components/TotalStreakCard.tsx";
 
