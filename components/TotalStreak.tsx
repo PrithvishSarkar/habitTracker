@@ -27,7 +27,7 @@ function TotalStreak({ displayStreak }: DisplayStreakType) {
   useEffect(() => {
     setTimeout(async () => {
       try {
-        const quotesJson = await fetch("/quotes.json");
+        const quotesJson = await fetch("/habitTracker/quotes.json");
         const quotesList: Quote[] = await quotesJson.json();
         setQuotes(quotesList);
       } catch (err: any) {
