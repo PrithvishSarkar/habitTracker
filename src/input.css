@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #e0f2fe;
+}
+
+.navigation-bar-background-image {
+  background-image: linear-gradient(to right, #3730a3, #3b82f6);
+  background-repeat: no-repeat;
+  box-shadow: 0 0.25rem 0.25rem #93c5fd;
+}
+
+.navigation-bar-logo-background-image {
+  background-image: linear-gradient(to right, #f59e0b, #fde68a);
+  background-repeat: no-repeat;
+  background-clip: text;
+}
+
+.navigation-bar-logo-border {
+  border-bottom-width: 0.125rem;
+  border-bottom-style: solid;
+  border-image-source: linear-gradient(
+    to right,
+    transparent,
+    transparent,
+    #fde68a,
+    transparent,
+    transparent
+  );
+  border-image-repeat: stretch;
+  border-image-slice: 1;
+}
+
+.navigation-bar-button-border {
+    border-image-source: linear-gradient(to top, transparent, #fde68a, transparent);
+    border-image-repeat: stretch;
+    border-image-slice: 1;
+}
+
+.streak-card-description-border {
+    border-image-source: linear-gradient(to right, transparent, #818cf8, transparent);
+    border-image-repeat: stretch;
+    border-image-slice: 1;
+}
