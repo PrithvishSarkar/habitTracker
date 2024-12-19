@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+# Habit Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Habit Tracker** is a React application built using Vite, designed to help users build and maintain new habits. With features like daily streak tracking, habit descriptions, and persistent local storage, this app is a great tool for fostering positive routines.
 
-Currently, two official plugins are available:
+## Application Interface
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![IMG1](screenshots/img1.png)
+![IMG2](screenshots/img2.png)
+![IMG2](screenshots/img3.png)
+![IMG2](screenshots/img4.png)
+![IMG2](screenshots/img5.png)
+![IMG2](screenshots/img6.png)
+![IMG2](screenshots/img7.png)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Fixed Navigation Bar**:
 
-- Configure the top-level `parserOptions` property like this:
+  - Non-scrollable navigation bar containing the app logo and navigation buttons for easy access.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Dynamic Main Display**:
+
+  - The main display re-renders based on navigation button clicks.
+  - By default, the "Today's Streak" section is displayed.
+
+- **"Today's Streak" Section**:
+
+  - Add new habits by providing a "Habit Title" and "Habit Details".
+  - View all added habits along with their descriptions.
+  - Mark habits as completed for the day using a toggle button:
+    - **Cross Mark (default state)** -> Indicates the task is not done.
+    - **Tick Mark** -> Indicates the task is completed.
+  - Toggle functionality ensures easy tracking of daily tasks.
+
+- **Daily Reset**:
+
+  - At the start of each day, all habits reset to the "Not Done" state (Cross Mark).
+
+- **Total Streak Section**:
+
+  - Displays the number of days a habit was marked as completed.
+
+- **Persistent Data**:
+
+  - All data, including habit names, descriptions, and streak counts, are stored in the browser's local storage.
+  - Data persists even after refreshing or closing the app.
+
+- **User-Friendly Design**:
+  - Simplistic and intuitive interface suitable for users aiming to develop good habits.
+  - The application is highly responsive and can be used accross all devices.
+
+## Tech Stacks
+
+- **Frontend**: ReactJS with Vite for fast development
+- **Styling**: Tailwind CSS
+- **Storage**: Browser Local Storage
+
+## Installation and Setup
+
+- **Clone Repository**:
+
+```javascript
+git clone https://github.com/prithvish774848474/habitTracker.git
+cd habit-tracker
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Install Dependencies**: `npm install`
+- **Run the App**: `npm run dev`
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Usage
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- Launch the app and navigate using the fixed navigation bar.
+- Add habits with descriptive titles and track their daily completion.
+- View your habit streaks in the **Total Streak** section.
+- Come back every day to update your progress!
