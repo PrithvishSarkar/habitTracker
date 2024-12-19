@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { NavigationBar } from "../components/NavigationBar.tsx";
 import { TodayStreak } from "../components/TodayStreak.tsx";
 import { TotalStreak } from "../components/TotalStreak.tsx";
+import {Footer} from "../components/Footer.tsx"
 
 export default function App() {
   const [navigationIndex, setNavigationIndex] = useState<number>(1);
@@ -62,7 +63,7 @@ export default function App() {
 
     const timer = setTimeout(() => {
       updateTodayStreakCardInfo();
-      
+
       const intervalID = setInterval(
         updateTodayStreakCardInfo,
         24 * 3600 * 1000
@@ -78,16 +79,19 @@ export default function App() {
   }, []);
 
   return (
-    <div>
-      <NavigationBar updateNavigationIndex={setNavigationIndex} />
-      {navigationIndex === 1 ? (
-        <TodayStreak
-          displayInfo={todayStreakCardInfo}
-          updateDisplayInfo={setTodayStreakCardInfo}
-        />
-      ) : (
-        <TotalStreak displayStreak={todayStreakCardInfo} />
-      )}
-    </div>
+    <section>
+      <div className="md:min-h-[100vh]">
+        <NavigationBar updateNavigationIndex={setNavigationIndex} />
+        {navigationIndex === 1 ? (
+          <TodayStreak
+            displayInfo={todayStreakCardInfo}
+            updateDisplayInfo={setTodayStreakCardInfo}
+          />
+        ) : (
+          <TotalStreak displayStreak={todayStreakCardInfo} />
+        )}
+      </div>
+      <Footer />
+    </section>
   );
 }
