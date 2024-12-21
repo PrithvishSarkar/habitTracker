@@ -1,59 +1,60 @@
 # Habit Tracker
 
-**Habit Tracker** is a React application built using Vite, designed to help users build and maintain new habits. With features like daily streak tracking, habit descriptions, and persistent local storage, this app is a great tool for fostering positive routines.
-
-## Application Interface
-
-![IMG1](screenshots/img1.png)
-![IMG2](screenshots/img2.png)
-![IMG2](screenshots/img3.png)
-![IMG2](screenshots/img4.png)
-![IMG2](screenshots/img5.png)
-![IMG2](screenshots/img6.png)
-![IMG2](screenshots/img7.png)
+**Habit Tracker** is a powerful and intuitive React application built with Vite, designed to help users build, track, and maintain positive habits. With features like *Daily Streak Tracking*, *Habit Descriptions*, *Starting Dates*, and *Persistent Data Storage*, this app makes habit-building both engaging and effective.
 
 ## Features
 
-- **Fixed Navigation Bar**:
+- **Fixed Navigation Bar**
 
   - Non-scrollable navigation bar containing the app logo and navigation buttons for easy access.
+  - Includes a *Delete All* button to clear all habits and reset the app
 
-- **Dynamic Main Display**:
+- **Delete All Functionality**
 
-  - The main display re-renders based on navigation button clicks.
-  - By default, the "Today's Streak" section is displayed.
+  - Clicking *Delete All* opens a confirmation modal
+  - If confirmed, all data in the *Local Storage* related to the App is deleted, and the app reloads to its initial state
 
-- **"Today's Streak" Section**:
+- **Dynamic Main Display**
 
-  - Add new habits by providing a "Habit Title" and "Habit Details".
-  - View all added habits along with their descriptions.
-  - Mark habits as completed for the day using a toggle button:
-    - **Cross Mark (default state)** -> Indicates the task is not done.
-    - **Tick Mark** -> Indicates the task is completed.
-  - Toggle functionality ensures easy tracking of daily tasks.
+  - Main display dynamically updates based on the navigation buttons
+  - By default, the *Today's Streak* section is displayed
 
-- **Daily Reset**:
+- **"Today's Streak" Section**
 
-  - At the start of each day, all habits reset to the "Not Done" state (Cross Mark).
+  - Add new habits by providing a *Habit Title* and *Habit Details*
+  - If a habit title or detail is left empty, a *Warning Modal* appears for 3 seconds
+  - View all added habits along with their descriptions
+  - Mark habits as completed for the day using a toggle button
+    - **Cross Mark (default state)** -> Indicates the task is not done
+    - **Tick Mark** -> Indicates the task is completed
+  - Toggle functionality ensures easy tracking of daily tasks
 
-- **Total Streak Section**:
+- **Starting Date**
 
-  - Displays the number of days a habit was marked as completed.
+  - Each habit card displays the starting date when the habit was added, enabling users to track their progress
+
+- **Daily Reset**
+
+  - All habits reset to "Not Done" (Cross Mark) at the start of a new day
+
+- **Total Streak Section**
+
+  - Displays the cumulative number of days each habit was completed
 
 - **Persistent Data**:
 
-  - All data, including habit names, descriptions, and streak counts, are stored in the browser's local storage.
-  - Data persists even after refreshing or closing the app.
+  - All data, including *Habit Titles*, *Habit Details*, *Streaks*, and *Starting Dates* are stored in the browser's *Local Storage*
+  - Data persists even after refreshing or closing the application
 
-- **User-Friendly Design**:
-  - Simplistic and intuitive interface suitable for users aiming to develop good habits.
-  - The application is highly responsive and can be used accross all devices.
+- **User-Friendly and Engaging Design**:
+  - The interface has been revamped with colorful and engaging visuals to improve user experience
+  - Works seamlessly across all devices, including *Mobile Phones*, *Tablets*, and *Desktops*
 
 ## Tech Stacks
 
-- **Frontend**: ReactJS with Vite for fast development
-- **Styling**: Tailwind CSS
-- **Storage**: Browser Local Storage
+- **Frontend**: ReactJS with Vite for fast and efficient development
+- **Styling**: Tailwind CSS for a clean and responsive design
+- **Storage**: Browser Local Storage for data persistence
 
 ## Installation and Setup
 
@@ -69,7 +70,24 @@ cd habit-tracker
 
 ## Usage
 
-- Launch the app and navigate using the fixed navigation bar.
-- Add habits with descriptive titles and track their daily completion.
-- View your habit streaks in the **Total Streak** section.
-- Come back every day to update your progress!
+- Launch the app and use the fixed navigation bar to switch between sections
+- Add habits with descriptive titles and details in the *Today's Streak* section
+- Track your daily habit completion using the toggle buttons
+- View *Total Streaks* and starting dates for each habit in the Total Streak section
+- Use the *Delete All* button if you want to reset your progress and start fresh
+
+## Application Interface
+
+![IMG1](screenshots/img1.png)
+![IMG2](screenshots/img2.png)
+![IMG2](screenshots/img3.png)
+![IMG2](screenshots/img4.png)
+![IMG2](screenshots/img5.png)
+![IMG2](screenshots/img6.png)
+![IMG2](screenshots/img7.png)
+![IMG2](screenshots/img8.png)
+
+## Acknowledgements
+
+- **ReactJS Documentation**: [ReactJS](https://react.dev/learn)
+- **Tailwind CSS Documentation**: [TailwindCSS](https://tailwindcss.com/docs/installation)
