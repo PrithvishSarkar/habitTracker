@@ -2,18 +2,33 @@ import "../src/tailwind.css";
 import { ImCross } from "react-icons/im";
 import { MdOutlineDone } from "react-icons/md";
 
+// Defining the Prop Type of 'TodayStreakCard' Component
 interface HabitInput {
+  date: string;
   isDone: boolean;
   habitTitle: string;
   habitDetail: string;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-function TodayStreakCard({isDone, habitTitle, habitDetail, onClick}: HabitInput) {
+
+// This is the Card used inside 'TodayStreak.tsx' and is invoked as List Item
+// date, isDone, habitTitle and habitDetail are present in Habit Info Array elements
+// onClick -> Toggles between 'true' and 'false' -> Work Done or not
+function TodayStreakCard({
+  date,
+  isDone,
+  habitTitle,
+  habitDetail,
+  onClick,
+}: HabitInput) {
   return (
     <div
-      className="p-2 mx-auto border-2 border-indigo-500 rounded-xl bg-indigo-100
+      className="p-2 border-2 border-indigo-500 rounded-xl bg-indigo-100
     max-w-full min-h-full flex flex-col items-center justify-between"
     >
+      <span className="text-sm font-extralight font-mono self-start">
+        Start Date: {date}
+      </span>
       <span className="text-center text-2xl font-mono font-bold text-indigo-800">
         {habitTitle}
       </span>
@@ -24,7 +39,7 @@ function TodayStreakCard({isDone, habitTitle, habitDetail, onClick}: HabitInput)
         {habitDetail}
       </span>
       <span
-        className="mt-6 p-2 
+        className="mt-4 p-2 
       text-center text-xl text-indigo-800 font-serif font-semibold"
       >
         Is today's work done?

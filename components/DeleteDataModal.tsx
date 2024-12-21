@@ -4,6 +4,9 @@ import { Dispatch, SetStateAction } from "react";
 type updateShowAlertModalType = {
   updateShowDeleteDataModal: Dispatch<SetStateAction<boolean>>;
 };
+
+// DeleteDataModal is invoked in App.tsx when the user clicks on "Delete All"
+// updateShowDeleteDataModal -> Boolean State Variable to either show or hide the Modal
 function DeleteDataModal({
   updateShowDeleteDataModal,
 }: updateShowAlertModalType) {

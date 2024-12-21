@@ -2,10 +2,19 @@ import { GiBiceps } from "react-icons/gi";
 import "../src/tailwind.css";
 import { Dispatch, SetStateAction } from "react";
 
+// Defining the Prop Type of 'NavigationBar' Component
 type PropType = {
-  updateNavigationIndex: Dispatch<SetStateAction<number>>
-}
-function NavigationBar({updateNavigationIndex}: PropType) {
+  updateNavigationIndex: Dispatch<SetStateAction<number>>;
+  updateShowDeleteDataModal: Dispatch<SetStateAction<boolean>>;
+};
+
+// This is a fixed Navigation Bar at the very top of the App
+// updateNavigationIndex -> Number State Variable -> Updates the navigation index
+// updateShowDeleteDataModal -> Boolean State Variable -> Updates the value to 'true'
+function NavigationBar({
+  updateNavigationIndex,
+  updateShowDeleteDataModal,
+}: PropType) {
   return (
     <nav
       className="p-2 min-w-full fixed top-0
@@ -23,20 +32,30 @@ function NavigationBar({updateNavigationIndex}: PropType) {
           <GiBiceps />
         </span>
       </span>
-      <span className="mt-2 md:mt-0 flex flex-row items-stretch justify-stretch">
+      <span
+        className="flex flex-row items-center justify-center 
+      text-sm md:text-base mt-2 md:mt-0"
+      >
         <button
           onClick={() => updateNavigationIndex(1)}
-          className="grow px-4 border-r border-solid ouline-0
-        navigation-bar-button-border cursor-pointer text-white font-serif italic"
+          className="grow px-2 border-r-2 border-amber-500 ouline-0
+          cursor-pointer text-white font-serif italic"
         >
           Today's Streak
         </button>
         <button
           onClick={() => updateNavigationIndex(2)}
-          className="grow px-4 border-l border-solid outline-0
-        navigation-bar-button-border cursor-pointer text-white font-serif italic"
+          className="grow px-2 border-r-2 border-amber-500 outline-0
+          cursor-pointer text-white font-serif italic"
         >
           Total Streak
+        </button>
+        <button
+          onClick={() => updateShowDeleteDataModal(true)}
+          className="grow px-2 outline-0
+          cursor-pointer text-white font-serif italic"
+        >
+          Delete All
         </button>
       </span>
     </nav>

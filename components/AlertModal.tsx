@@ -1,5 +1,7 @@
 import "../src/tailwind.css";
 
+// This Modal is displayed when the user enters an empty string
+// This Modal is invoked in App.tsx for 3 seconds
 function AlertModal() {
   return (
     <section className="fixed min-w-full min-h-[100vh] bg-transparent backdrop-blur-sm">
