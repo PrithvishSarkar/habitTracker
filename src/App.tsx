@@ -3,10 +3,15 @@ import { useState, useEffect, useRef } from "react";
 import { NavigationBar } from "../components/NavigationBar.tsx";
 import { TodayStreak } from "../components/TodayStreak.tsx";
 import { TotalStreak } from "../components/TotalStreak.tsx";
-import {Footer} from "../components/Footer.tsx"
+import { Footer } from "../components/Footer.tsx";
+import { AlertModal } from "../components/AlertModal.tsx";
+import { DeleteDataModal } from "../components/DeleteDataModal.tsx";
 
 export default function App() {
   const [navigationIndex, setNavigationIndex] = useState<number>(1);
+  const [showAlertModal, setShowAlertModal] = useState(false);
+  const [showDeleteDataModal, setShowDeleteDataModal] = useState(false);
+
   const lastUsedDate = useRef<string>(
     (() => {
       const storedDate = window.localStorage.getItem("last-used-date");
@@ -19,13 +24,39 @@ export default function App() {
     detail: string;
     isDone: boolean;
     count: number;
+    date: string;
   };
+
+  const tempStreakCardInfo = [
+    {
+      title: "Early Bird",
+      detail: "I will wake up daily at 5AM starting today",
+      isDone: false,
+      count: 0,
+      date: new Date().toDateString(),
+    },
+    {
+      title: "Weight Loss",
+      detail:
+        "I will hit the Gym 4 times a week for at least 3 months straight",
+      isDone: false,
+      count: 0,
+      date: new Date().toDateString(),
+    },
+    {
+      title: "Play Guitar",
+      detail: "I will practice playing Guitar for 1 hour daily",
+      isDone: false,
+      count: 0,
+      date: new Date().toDateString(),
+    },
+  ];
 
   const [todayStreakCardInfo, setTodayStreakCardInfo] = useState<
     StreakCardType[]
   >(() => {
     const localStorageData = window.localStorage.getItem("habit-info");
-    return localStorageData ? JSON.parse(localStorageData) : [];
+    return localStorageData ? JSON.parse(localStorageData) : tempStreakCardInfo;
   });
 
   useEffect(() => {
@@ -79,19 +110,29 @@ export default function App() {
   }, []);
 
   return (
-    <section>
-      <div className="md:min-h-[100vh]">
-        <NavigationBar updateNavigationIndex={setNavigationIndex} />
-        {navigationIndex === 1 ? (
-          <TodayStreak
-            displayInfo={todayStreakCardInfo}
-            updateDisplayInfo={setTodayStreakCardInfo}
+    <section data-type="wrapper">
+      {showAlertModal && <AlertModal />}
+      {showDeleteDataModal && (
+        <DeleteDataModal updateShowDeleteDataModal={setShowDeleteDataModal} />
+      )}
+      <section className="flex flex-col items-stretch justify-between gap-1 min-h-[100vh]">
+        <div className="grow">
+          <NavigationBar
+            updateNavigationIndex={setNavigationIndex}
+            updateShowDeleteDataModal={setShowDeleteDataModal}
           />
-        ) : (
-          <TotalStreak displayStreak={todayStreakCardInfo} />
-        )}
-      </div>
-      <Footer />
+          {navigationIndex === 1 ? (
+            <TodayStreak
+              displayInfo={todayStreakCardInfo}
+              updateDisplayInfo={setTodayStreakCardInfo}
+              updateShowAlertModal={setShowAlertModal}
+            />
+          ) : (
+            <TotalStreak displayStreak={todayStreakCardInfo} />
+          )}
+        </div>
+        <Footer />
+      </section>
     </section>
   );
 }
