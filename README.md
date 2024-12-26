@@ -1,6 +1,6 @@
 # Habit Tracker
 
-**Habit Tracker** is a powerful and intuitive React application built with Vite, designed to help users build, track, and maintain positive habits. With features like *Daily Streak Tracking*, *Habit Descriptions*, *Starting Dates*, and *Persistent Data Storage*, this app makes habit-building both engaging and effective.
+**Habit Tracker** is a powerful and intuitive React application built with Vite, designed to help users build, track, and maintain positive habits. With features like *Daily Streak Tracking*, *Habit Descriptions*, *Starting Dates*, *Editing and Deleting Habits*, and *Persistent Data Storage*, this app makes habit-building both engaging and effective.
 
 ## Features
 
@@ -28,6 +28,16 @@
     - **Cross Mark (default state)** -> Indicates the task is not done
     - **Tick Mark** -> Indicates the task is completed
   - Toggle functionality ensures easy tracking of daily tasks
+
+- **Edit Habit**
+
+  - Click on the *Edit* icon to open a modal where you can update the *Habit Title* and *Habit Details*
+  - Submit changes by clicking the *Add Habit* button, or close the modal to discard changes without making edits
+
+- **Delete Habit**
+
+  - Click on the *Bin* icon to delete a specific habit
+  - The selected habit is removed from the app and *Local Storage*
 
 - **Starting Date**
 
@@ -60,7 +70,7 @@
 
 - **Clone Repository**:
 
-```javascript
+```bash
 git clone https://github.com/prithvish774848474/habitTracker.git
 cd habit-tracker
 ```
@@ -72,8 +82,10 @@ cd habit-tracker
 
 - Launch the app and use the fixed navigation bar to switch between sections
 - Add habits with descriptive titles and details in the *Today's Streak* section
+- Edit habits by clicking the *Edit* icon and updating the habit information in the modal
+- Delete specific habits using the *Bin* icon
 - Track your daily habit completion using the toggle buttons
-- View *Total Streaks* and starting dates for each habit in the Total Streak section
+- View Total Streaks and starting dates for each habit in the Total Streak section
 - Use the *Delete All* button if you want to reset your progress and start fresh
 
 ## Application Interface
@@ -85,7 +97,6 @@ cd habit-tracker
 ![IMG2](screenshots/img5.png)
 ![IMG2](screenshots/img6.png)
 ![IMG2](screenshots/img7.png)
-![IMG2](screenshots/img8.png)
 
 ## Acknowledgements
 
