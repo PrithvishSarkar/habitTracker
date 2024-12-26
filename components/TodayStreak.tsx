@@ -24,12 +24,18 @@ type DisplayInfoType = {
     >
   >;
   updateShowAlertModal: Dispatch<SetStateAction<boolean>>;
+  updateShowEditModal: Dispatch<SetStateAction<{show: boolean, index: number}>>;
 };
 
+// displayInfo -> Actual Array that contains the habit information
+// updateDisplayInfo -> same as 'setDisplayInfo' -> Updates 'todayStreakCardInfo' Array
+// updateShowAlertModal -> Updates the Boolean to either 'true' or 'false'
+// updateShowEditModal -> Updates whether to show the Edit Modal or not
 function TodayStreak({
   displayInfo,
   updateDisplayInfo,
   updateShowAlertModal,
+  updateShowEditModal,
 }: DisplayInfoType) {
   // The 'habitTitle' contains the value of Habit Title Input
   const [habitTitle, setHabitTitle] = useState<string>("");
@@ -82,6 +88,19 @@ function TodayStreak({
         }
         return ele;
       })
+    );
+  };
+
+  // This function shows an Edit Modal when the user clicks on 'Edit' button icon
+  // This function provides the index of the selected Streak Card to be edited
+  const handleEdit = (i: number) => {
+    updateShowEditModal({show: true, index: i});
+  };
+
+  // This function deletes the Streak Card as per its index
+  const handleDelete = (i: number) => {
+    updateDisplayInfo((previousArray) =>
+      previousArray.filter((_, index) => (i !== index))
     );
   };
 
@@ -162,6 +181,8 @@ function TodayStreak({
                 habitTitle={cardInfo.title}
                 habitDetail={cardInfo.detail}
                 onClick={() => handleClick(index)}
+                onEdit={() => handleEdit(index)}
+                onDelete={() => handleDelete(index)}
               />
             </li>
           )

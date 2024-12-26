@@ -13,7 +13,7 @@ function DeleteDataModal({
   return (
     <section
       className={
-        "min-w-full min-h-[100vh] bg-transparent z-10 backdrop-blur-sm fixed"
+        "min-w-full min-h-[100vh] bg-transparent z-10 backdrop-blur-md fixed"
       }
     >
       <div
