@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://prithvish774848474.github.io/habitTracker/",
+  "homepage": "https://prithvishsarkar.github.io/habitTracker/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
